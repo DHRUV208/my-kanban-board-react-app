@@ -45,7 +45,7 @@ const KanbanBoard = () => {
   }
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <h3 className="text-center">In Progress</h3>
+      <h3 className="text-center">Jira Progress Board</h3>
       <div className="flex justify-between items-center flex-row">
         <Column title={"TODO"} tasks={incomplete} id={"1"} />
         <Column title={"DONE"} tasks={completed} id={"2"} />

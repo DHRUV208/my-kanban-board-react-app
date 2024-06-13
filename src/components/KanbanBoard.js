@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Column from "./Column";
+import { API_URL } from "../utils/constants";
 
 const KanbanBoard = () => {
   const [completed, setCompleted] = useState([]);
@@ -12,9 +13,9 @@ const KanbanBoard = () => {
   }, []);
 
   const getData = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await fetch(API_URL);
     const jsonVal = await data.json();
-    // console.log("json--->>>>", jsonVal);
+    
     setCompleted(jsonVal.filter((task) => task.completed));
     setIncomplete(jsonVal.filter((task) => !task.completed));
   };
@@ -45,8 +46,8 @@ const KanbanBoard = () => {
   }
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <h3 className="text-center">Jira Progress Board</h3>
-      <div className="flex justify-between items-center flex-row">
+      <h3 className="text-center text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4">Jira Progress Board</h3>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
         <Column title={"TODO"} tasks={incomplete} id={"1"} />
         <Column title={"DONE"} tasks={completed} id={"2"} />
         <Column title={"IN PROGRESS"} tasks={[]} id={"3"} />

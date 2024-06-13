@@ -44,7 +44,10 @@ const KanbanBoard = () => {
   function removeItemById(id, array) {
     return array.filter((item) => item.id != id);
   }
-  return (
+  
+  return completed.length === 0 || incomplete.length === 0 ? (
+    <h3>Loading....</h3>
+  ): (
     <DragDropContext onDragEnd={handleDragEnd}>
       <h3 className="text-center text-lg sm:text-xl mb-4">Jira Progress Board</h3>
       <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start  space-y-4 sm:space-y-0 sm:space-x-4 ">

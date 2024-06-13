@@ -19,4 +19,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
  - Drag & Drop feature using react-beautiful-dnd lib
  - useState && useEffect hooks
  - Tailwind Css
+ - Web & Mobile Responsive
  
